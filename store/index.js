@@ -1,7 +1,7 @@
 export const state = () => ({})
 
-export const action = {
-  SOCKET_NewMessage(ctx, data) {
+export const actions = {
+  SOCKET_newMessage(ctx, data) {
     console.log('ms received: ' + data)
   }
 }
