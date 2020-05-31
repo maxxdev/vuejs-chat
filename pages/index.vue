@@ -1,10 +1,7 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
+  <v-layout column justify-center align-center>
 
+    <v-btn @click="send()">Send message</v-btn>
   </v-layout>
 </template>
 
@@ -13,10 +10,12 @@
   export default {
     sockets: {
       connect: function () {
-        console.log('socket connected')
-      },
-      customEmit: function (data) {
-        console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)')
+        console.log('socket connected ----------------------- ')
+      }
+    },
+    methods: {
+      send() {
+        this.$socket.emit('createMessage', {text: 'text from client to '})
       }
     }
   }

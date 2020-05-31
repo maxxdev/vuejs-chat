@@ -7,6 +7,14 @@ io.on('connection', socket => {
   socket.emit('newMessage', {
     text: 'emmited new message'
   })
+
+  socket.on('createMessage', data => {
+    setTimeout(() => {
+      socket.emit('newMessage', {
+        text: data.text + ' server'
+      })
+    }, 1000)
+  })
 })
 
 module.exports = {
